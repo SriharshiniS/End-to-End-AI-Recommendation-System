@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Movie Recommendation System</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <h1>🎬 AI Movie Recommendation System</h1>
+    <p class="subtitle">Get personalized movie suggestions instantly</p>
+
+    <!-- Form -->
+    <form method="POST">
+        <div class="form-group">
+            <label for="user_id">👤 User ID</label>
+            <input 
+                type="number" 
+                id="user_id" 
+                name="user_id" 
+                placeholder="Enter User ID (e.g. 1)" 
+                required>
+        </div>
+
+        <div class="form-group">
+            <label for="movie">🎥 Movie Name</label>
+            <input 
+                type="text" 
+                id="movie" 
+                name="movie" 
+                placeholder="Enter Movie Title (e.g. Toy Story (1995))" 
+                required>
+        </div>
+
+        <button type="submit">🚀 Get Recommendations</button>
+    </form>
+
+    <!-- Results -->
+    {% if recommendations %}
+        <div class="results">
+            <h2>✨ Recommended Movies</h2>
+            <ul>
+                {% for movie in recommendations %}
+                    <li>🎬 {{ movie }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
