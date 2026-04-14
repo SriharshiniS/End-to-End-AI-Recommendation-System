@@ -1,8 +1,7 @@
+numpy==1.26.4
 pandas
-numpy
 scikit-learn
 scikit-surprise
 flask
-joblib
 gunicorn
-requests
+joblib
